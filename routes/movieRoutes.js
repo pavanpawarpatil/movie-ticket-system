@@ -1,9 +1,18 @@
 const express = require('express');
 const router = express.Router();
-const { getMovies, getMovieById, getMovieShowtimes } = require('../controllers/movieController');
+const { 
+  getMovies, 
+  createMovie,
+  getMovieById 
+} = require('../controllers/movieController');
 
+// GET all movies
 router.get('/', getMovies);
+
+// GET movie by ID
 router.get('/:id', getMovieById);
-router.get('/:movieId/showtimes', getMovieShowtimes);
+
+// CREATE a new movie (optional, for admin)
+router.post('/', createMovie);
 
 module.exports = router;
